@@ -82,7 +82,10 @@ EOF
 echo "installing apps"
 yum -y install wget gcc net-tools bsdtar zip >/dev/null
 
-echo "touch /var/lock/subsys/local" > /etc/rc.d/rc.local
+cat << EOF > /etc/rc.d/rc.local
+#!/bin/bash
+touch /var/lock/subsys/local
+EOF
 
 install_3proxy
 
